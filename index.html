@@ -626,70 +626,77 @@
           <div class="auto-chat-container">
             <div class="auto-chat"></div>
             <script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const sections = document.querySelectorAll('section'); // 모든 섹션 선택
-    const footer = document.querySelector('footer'); // 푸터 선택
-    let currentIndex = 0; // 현재 섹션 인덱스
-    let isScrolling = false; // 중복 스크롤 방지 플래그
+              document.addEventListener("DOMContentLoaded", () => {
+                const sections = document.querySelectorAll("section"); // 모든 섹션 선택
+                const footer = document.querySelector("footer"); // 푸터 선택
+                let currentIndex = 0; // 현재 섹션 인덱스
+                let isScrolling = false; // 중복 스크롤 방지 플래그
 
-    // 마우스 휠 이벤트 리스너 추가
-    window.addEventListener('wheel', (event) => {
-      // Ctrl 키가 눌린 상태에서는 기본 동작(확대/축소)을 허용
-      if (event.ctrlKey) {
-        return;
-      }
+                // 마우스 휠 이벤트 리스너 추가
+                window.addEventListener(
+                  "wheel",
+                  (event) => {
+                    // Ctrl 키가 눌린 상태에서는 기본 동작(확대/축소)을 허용
+                    if (event.ctrlKey) {
+                      return;
+                    }
 
-      // 이벤트가 모달 내부에서 발생한 경우에는 모달의 기본 스크롤을 허용하고 리턴
-      if (event.target.closest('.modal')) {
-        return;
-      }
+                    // 이벤트가 모달 내부에서 발생한 경우에는 모달의 기본 스크롤을 허용하고 리턴
+                    if (event.target.closest(".modal")) {
+                      return;
+                    }
 
-      // 모달 외부에서만 기본 스크롤을 방지하고 섹션 이동 처리
-      event.preventDefault(); // 기본 스크롤 방지
-      if (isScrolling) return; // 현재 스크롤 중이면 무시
+                    // 모달 외부에서만 기본 스크롤을 방지하고 섹션 이동 처리
+                    event.preventDefault(); // 기본 스크롤 방지
+                    if (isScrolling) return; // 현재 스크롤 중이면 무시
 
-      if (event.deltaY > 0) {
-        // 아래로 스크롤 -> 다음 섹션 또는 푸터로 이동
-        if (currentIndex < sections.length - 1) {
-          currentIndex++;
-        } else {
-          scrollToFooter(); // 마지막 섹션 이후에는 푸터로 이동
-          return;
-        }
-      } else if (event.deltaY < 0) {
-        // 위로 스크롤 -> 이전 섹션으로 이동
-        if (currentIndex > 0) {
-          currentIndex--;
-        } else {
-          return;
-        }
-      } else {
-        return;
-      }
+                    if (event.deltaY > 0) {
+                      // 아래로 스크롤 -> 다음 섹션 또는 푸터로 이동
+                      if (currentIndex < sections.length - 1) {
+                        currentIndex++;
+                      } else {
+                        scrollToFooter(); // 마지막 섹션 이후에는 푸터로 이동
+                        return;
+                      }
+                    } else if (event.deltaY < 0) {
+                      // 위로 스크롤 -> 이전 섹션으로 이동
+                      if (currentIndex > 0) {
+                        currentIndex--;
+                      } else {
+                        return;
+                      }
+                    } else {
+                      return;
+                    }
 
-      scrollToSection(currentIndex);
-    }, { passive: false }); // 기본 스크롤 방지를 위해 passive 옵션을 false로 설정
+                    scrollToSection(currentIndex);
+                  },
+                  { passive: false }
+                ); // 기본 스크롤 방지를 위해 passive 옵션을 false로 설정
 
-    function scrollToSection(index) {
-      isScrolling = true; // 스크롤 중임을 표시
-      sections[index].scrollIntoView({ behavior: 'smooth', block: 'start' });
+                function scrollToSection(index) {
+                  isScrolling = true; // 스크롤 중임을 표시
+                  sections[index].scrollIntoView({
+                    behavior: "smooth",
+                    block: "start",
+                  });
 
-      // 스크롤 이벤트가 끝난 후 플래그 해제
-      setTimeout(() => {
-        isScrolling = false;
-      }, 800); // 스크롤 완료 대기 시간
-    }
+                  // 스크롤 이벤트가 끝난 후 플래그 해제
+                  setTimeout(() => {
+                    isScrolling = false;
+                  }, 200); // 스크롤 완료 대기 시간
+                }
 
-    function scrollToFooter() {
-      isScrolling = true; // 스크롤 중임을 표시
-      footer.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                function scrollToFooter() {
+                  isScrolling = true; // 스크롤 중임을 표시
+                  footer.scrollIntoView({ behavior: "smooth", block: "start" });
 
-      // 스크롤 이벤트가 끝난 후 플래그 해제
-      setTimeout(() => {
-        isScrolling = false;
-      }, 1000); // 스크롤 완료 대기 시간
-    }
-  });
+                  // 스크롤 이벤트가 끝난 후 플래그 해제
+                  setTimeout(() => {
+                    isScrolling = false;
+                  }, 200); // 스크롤 완료 대기 시간
+                }
+              });
               document.addEventListener("DOMContentLoaded", () => {
                 adjustFontSize(); // 페이지 로딩 시 확대 비율에 따른 글자 크기 조정
                 displayMessages(); // 글자 크기 조정 후 타이핑 애니메이션 시작
@@ -2321,7 +2328,7 @@
                   <div class="promodal-body">
                     <div id="overview">
                       <!-- 인트로 이미지 -->
-                      <h5 style="font-style: italic">
+                      <h5 style="font-style: italic; text-align: center">
                         "바이럴에 지쳐버린 굶주린 영혼들을 위한 맛집 지침서"
                       </h5>
                       <div class="col-md-12">
@@ -2931,7 +2938,7 @@
                   <div class="promodal-body">
                     <div id="overview2">
                       <!-- 인트로 이미지 -->
-                      <h5 style="font-style: italic">
+                      <h5 style="font-style: italic; text-align: center">
                         "바이럴에 지쳐버린 굶주린 영혼들을 위한 맛집 APP"
                       </h5>
                       <div class="col-md-12">
