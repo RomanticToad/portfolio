@@ -9454,7 +9454,6 @@ fieldset:disabled .btn {
   }
 
   .skills-container, .skillset {
-      width: 100%;
       text-align: center;
   }
 }
@@ -9493,7 +9492,6 @@ fieldset:disabled .btn {
 .skills-container {
   display: flex;
   justify-content: space-around;
-  width: 100%;
 }
 
 .skillset {
