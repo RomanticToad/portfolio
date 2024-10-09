@@ -511,6 +511,16 @@
       body {
         font-size: 0.85rem;
       }
+      @media (max-width: 500px) {
+  .chatbox {
+    display: none;
+  }
+}
+@media (min-width: 500px) {
+  .chatbox-greeting-mobile {
+    display: none;
+  }
+}
     </style>
   </head>
   <!-- 스크롤 할때 내비게이션이 따라감. -->
@@ -596,12 +606,28 @@
             <span class="option-content">010-7755-8274</span>
           </button>
         </div>
+        <div class="chatbox-greeting-mobile">
+          <h3>
+            저는 신입 개발자
+            <span class="underline-effect">김경태</span> 입니다!
+          </h3>
+          <div class="chatbox-input">
+            <input
+              type="text"
+              placeholder="저에 대해서 더 궁금하시다면?"
+              style="cursor: pointer"
+              data-bs-toggle="modal"
+              data-bs-target="#aboutModal"
+              readonly
+            />
+            <i class="fa fa-search"></i>
+          </div>
+        </div>
       </div>
       <div class="chatbox">
         <div class="chatbox-greeting">
           <div class="image-container">
             <img src="image/kkt_icon.png" class="profile-icon" />
-            <!-- <img src="image/kkt.jpg" class="profile-icon"> -->
           </div>
           <h2>
             저는 신입 개발자
