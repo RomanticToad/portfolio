@@ -1054,7 +1054,7 @@
         <div>
           <p class="fw-bold fs-4" style="margin: 0">Skills</p>
         </div>
-        <!-- 두 번째 줄: 5개의 버튼 -->
+        <!-- 두 번째 줄: 6개의 버튼 -->
         <div class="skills-row">
           <div class="overlay">
             <!-- <p class="details-text">• • •</p> -->
@@ -1113,7 +1113,7 @@
             />
           </button>
         </div>
-        <!-- 세 번째 줄: 4개의 버튼 -->
+        <!-- 세 번째 줄: 6개의 버튼 -->
         <div class="skills-row">
           <!-- HTML -->
           <button type="button" class="btn btn-lg popover-btn">
@@ -2001,6 +2001,52 @@
       .popover-body li {
         padding-bottom: 2vh;
       }
+      .popover-btn {
+  position: relative;
+  display: inline-block;
+  overflow: hidden; /* 이미지가 버튼을 벗어나지 않도록 설정 */
+}
+
+.popover-btn img {
+  transition: transform 0.3s ease;
+}
+
+.popover-btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%; /* 처음에는 버튼의 왼쪽 바깥에 배치 */
+  width: 200%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.6); /* 빛줄기 효과 - 기본적으로 밝음 */
+  transform: skewX(-20deg); /* 빛줄기를 기울임 */
+  opacity: 0; /* 기본적으로 보이지 않음 */
+  transition: none;
+}
+
+.popover-btn:hover::before {
+  animation: shine 0.5s linear forwards; /* 마우스를 올렸을 때만 애니메이션 실행 */
+}
+
+/* 애니메이션 - 처음에는 보이지 않다가 중간에 밝아지고 다시 사라짐 */
+@keyframes shine {
+  0% {
+    left: -100%;
+    opacity: 0; /* 시작할 때는 보이지 않음 */
+  }
+  30% {
+    opacity: 1; /* 중간에 밝아짐 */
+  }
+  70% {
+    opacity: 1; /* 밝은 상태 유지 */
+  }
+  100% {
+    left: 100%;
+    opacity: 0; /* 끝날 때 사라짐 */
+  }
+}
+
+      
 
       /* 모바일 화면에서 팝오버 크기 제한 및 줄바꿈 처리 */
       @media (max-width: 768px) {
@@ -2052,7 +2098,7 @@
         }
 
         .skills-row {
-          gap: 10px; /* 웹에서는 더 넓은 간격 */
+          gap: 90px; /* 웹에서는 더 넓은 간격 */
         }
       }
 
