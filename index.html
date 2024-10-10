@@ -515,6 +515,10 @@
         .chatbox {
           display: none;
         }
+        .mouse_scroll {
+          bottom: 3vh; /* 화면 아래에서 30px 위에 위치 */
+          right: 1vh;
+        }
       }
       @media (min-width: 500px) {
         .chatbox-greeting-mobile {
@@ -570,6 +574,14 @@
     <section id="home" class="chat-container">
       <!-- 왼쪽 사진 영역 -->
       <div class="left-section" style="margin-top: 70px">
+        <div class="mouse_scroll">
+          <span class="mouse"></span>
+          <div class="dowm_arrow">
+            <span class="dowm_arrow1"></span>
+            <span class="dowm_arrow2"></span>
+            <span class="dowm_arrow3"></span>
+          </div>
+        </div>
         <div class="image-container">
           <!-- <img src="image/배경제거.png" class="profile-image" /> -->
           <img src="image/배경제거.png" class="profile-image" />
@@ -635,14 +647,6 @@
           </h2>
         </div>
         <div>
-          <div class="mouse_scroll">
-            <span class="mouse"></span>
-            <div class="dowm_arrow">
-              <span class="dowm_arrow1"></span>
-              <span class="dowm_arrow2"></span>
-              <span class="dowm_arrow3"></span>
-            </div>
-          </div>
           <div class="auto-chat-container">
             <div class="auto-chat"></div>
             <script>
