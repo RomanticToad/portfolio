@@ -1059,7 +1059,7 @@
       <!-- skills -->
       <div class="skills-container2" onclick="showModal()">
         <div>
-          <p class="fw-bold fs-4" style="margin: 0">Skills</p>
+          <p class="fw-bold fs-4" style="margin-bottom: 0.5rem">Skills</p>
         </div>
         <!-- 두 번째 줄: 6개의 버튼 -->
         <div class="skills-row">
@@ -1969,41 +1969,44 @@
         position: relative;
         width: 100%; /* 컨테이너를 화면 너비에 맞추기 */
       }
+      .skills-container2:hover{
+        transform: scale(1.05);
+        transition: transform 0.3s ease, box-shadow 0.3s ease; /* 부드러운 애니메이션 추가 */
+      }
 
       .overlay {
         position: absolute;
-        height: 200%;
-        width: 100%;
-        background-color: rgba(0, 0, 0, 0.5);
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        opacity: 0;
-        transition: opacity 0.3s ease;
-        border-radius: 30px;
+        height: 200%; /* 컨테이너 크기 */
+        width: 100%; /* 컨테이너 크기 */
+        background-color: transparent; /* 내부는 투명하게 */
+        border-radius: 30px; /* 둥근 모서리 */
+        box-shadow: 0 0px 15px 5px rgba(0, 123, 255, 0); /* 초기 그림자 없음 */
+        transition: box-shadow 0.5s ease-in-out; /* 부드러운 전환 */
+        animation: fade-shadow 4s infinite; /* 그림자 페이드인아웃 */
         z-index: 1; /* 버튼 위로 오버레이 표시 */
-        opacity: 0;
-        transition: opacity 0.5s ease-in-out;
-        animation: fade-in-out 4s infinite; /* 3초 주기로 반복 */
+        pointer-events: none; /* 클릭 방지 */
       }
-      @keyframes fade-in-out {
+
+      /* 그림자 페이드인아웃 애니메이션 */
+      @keyframes fade-shadow {
         0% {
-          opacity: 0;
+          box-shadow: 0 0 0 rgba(0, 123, 255, 0); /* 그림자 없음 */
         }
         25% {
-          opacity: 1;
+          box-shadow: 0 0px 15px 5px rgba(0, 123, 255, 0.7); /* 아래쪽에 파란색 그림자 */
         }
         50% {
-          opacity: 1;
+          box-shadow: 0 0px 15px 5px rgba(0, 123, 255, 0.7); /* 유지 */
         }
         100% {
-          opacity: 0;
+          box-shadow: 0 0 0 rgba(0, 123, 255, 0); /* 다시 그림자 없음 */
         }
       }
 
+      /* 호버 시 아래쪽 그림자 고정 */
       .skills-container2:hover .overlay {
-        opacity: 1;
-        animation: none; /* 애니메이션 멈춤 */
+        box-shadow: 0 0px 15px 5px rgba(0, 123, 255, 0.7); /* 고정된 파란색 그림자 */
+        background-color:  rgba(0, 123, 255, 0.2);
       }
 
       /* .details-text {
