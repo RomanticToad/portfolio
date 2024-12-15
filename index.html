@@ -874,6 +874,7 @@
             style="cursor: pointer"
             data-bs-toggle="modal"
             data-bs-target="#aboutModal"
+            data-button-id="자소서 열림"
             readonly
           />
           <i class="fa fa-search"></i>
@@ -1083,7 +1084,7 @@
         <!-- 개발 환경 -->
       </div>
       <!-- skills -->
-      <div class="skills-container2" onclick="showModal()">
+      <div class="skills-container2" onclick="showModal()" data-button-id="기술스택 모달 열림">
         <div>
           <p class="fw-bold fs-4" style="margin-bottom: 0.5rem">Skills</p>
         </div>
@@ -2409,6 +2410,7 @@
               class="card"
               style="width: auto"
               data-modal-target="#promodal1"
+              data-button-id="1차 프로젝트 모달 열림"
             >
               <img
                 src="image/1th/intro/맛집인트로.jpg"
@@ -3046,6 +3048,7 @@
               class="card"
               style="width: auto"
               data-modal-target="#promodal2"
+              data-button-id="2차 프로젝트 모달 열림"
             >
               <img
                 src="image/2th/intro/맛집모바일인트로.avif"
@@ -3737,6 +3740,7 @@
               class="card"
               style="width: auto"
               data-modal-target="#promodal3"
+              data-button-id="3차 프로젝트 모달 열림"
             >
               <img
                 src="image/3th/intro/3차인트로.png"
